@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizeabler nav</title>
+    <style>
+        .hero_sec {
+            width: 100%;
+            display: flex;
+            height: 100vh;
+
+        }
+
+        .topnav {
+            width: 0%;
+            height: 100%;
+            background-color: #eaeaea;
+            position: relative;
+            transition: all .3s ease-in-out;
+        }
+
+        .topnav .hamburger_btn {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            position: absolute;
+            top: 1rem;
+            right: 0;
+            transform: translateX(2rem);
+        }
+
+        .hero_sec-cont {
+            width: 100%;
+            height: 100%;
+            background-color: gray;
+            transition: all .3s ease-in-out;
+        }
+
+        .nav_toggle {
+            width: 20%;
+            background-color: #07254C;
+
+        }
+
+        .hero_sec-cont-toggle {
+            width: 80%;
+            margin-left: auto;
+            background-color: #30304C;
+        }
+
+        .adds {
+            position: fixed;
+            top: 70vh;
+            right: 3rem;
+            width: 100px;
+            height: 100px;
+            transform: translateY(-50%);
+            background-color: #eaeaea;
+            transition: all .3s ease-in-out;
+            display: none;
+            
+        }
+
+        .add_close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+            border: 0;
+            width: 40px;
+            height: 40px;
+            background-color: crimson;
+            border-radius: 50%;
+            transition: all .3s ease-in-out;
+        }
+
+        .show{
+            display: block;
+            transition: all .3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body id="site_body">
+    <div class="site_wraper">
+        <header>
+
+        </header>
+
+        <main>
+            <section class="hero_sec">
+                <nav class="topnav">
+                    <a href="#" class="hamburger_btn">X</a>
+                </nav><!-- /.topnav -->
+                <div class="hero_sec-cont">
+
+                </div><!-- /.hero_sec-cont -->
+            </section>
+
+
+            <section class="adds">
+                <button class="add_close-btn">x</button>
+            </section>
+        </main>
+
+        <footer>
+
+        </footer>
+    </div><!-- /.site_wraper -->
+
+    <script>
+
+        let screen_adds = document.querySelector(".adds")
+        let close_btn = document.querySelector(".add_close-btn")
+
+        window.onload = function () {
+            setTimeout(function () {
+                screen_adds.classList.add("show");
+                document.querySelector("#site_body").style.overflowY = "hidden";
+
+                close_btn.addEventListener('click', function () {
+                    this.parentElement.classList.remove("show");
+
+                })
+
+
+
+            }, 3000)}
+
+
+        let hamburger = document.querySelector('.hamburger_btn')
+
+        let navtop = document.querySelector('.topnav')
+
+        let heroSect = document.querySelector('.hero_sec-cont')
+
+        hamburger.addEventListener('click', function () {
+            navtop.classList.toggle('nav_toggle')
+            heroSect.classList.toggle('hero_sec-cont-toggle')
+        })
+    </script>
+</body>
+
+</html>
